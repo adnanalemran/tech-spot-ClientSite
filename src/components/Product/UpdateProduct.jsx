@@ -32,7 +32,7 @@ const UpdateProduct = () => {
         Swal.fire({
           icon: "success",
           title: "Updated",
-          text: "Your note has been updated 8   successfully.",
+          text: "Your note has been updated  successfully.",
         });
       } else {
         Swal.fire({
@@ -131,7 +131,7 @@ const UpdateProduct = () => {
           type="submit"
           className="block w-full p-3 text-center rounded-xl dark-text-gray-900 dark-bg-violet-400 btn btn-primary"
         >
-          Add Product
+          Update Product
         </button>
       </form>
     </div>

@@ -5,8 +5,8 @@ const AddProduct = () => {
   const initialFormData = {
     image: "",
     name: "",
-    brandName: "",  
-    type: "",      
+    brandName: "Apple",  
+    type: "Phone",      
     price: "",
     shortDescription: "",
     rating: ""
@@ -69,12 +69,14 @@ const AddProduct = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            required
             className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           />
         </div>
         <div className="space-y-1 text-sm">
           <label className="block dark-text-gray-400">Image URL</label>
           <input
+          required
             type="text"
             name="image"
             value={formData.image}
@@ -85,6 +87,7 @@ const AddProduct = () => {
         <div className="space-y-1 text-sm">
           <label className="block dark-text-gray-400">Brand Name</label>
           <select
+          required
             name="brandName"
             value={formData.brandName}
             onChange={handleChange}
@@ -115,6 +118,7 @@ const AddProduct = () => {
         <div className="space-y-1 text-sm">
           <label className="block dark-text-gray-400">Price</label>
           <input
+          required
             type="number"
             name="price"
             value={formData.price}
@@ -125,6 +129,7 @@ const AddProduct = () => {
         <div className="space-y-1 text-sm">
           <label className="block dark-text-gray-400">Short Description</label>
           <textarea
+          required
             name="shortDescription"
             value={formData.shortDescription}
             onChange={handleChange}
@@ -134,6 +139,7 @@ const AddProduct = () => {
         <div className="space-y-1 text-sm">
           <label className="block dark-text-gray-400">Rating</label>
           <input
+          required
             type="number"
             name="rating"
             value={formData.rating}
