@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 const Page404 = () => {
   return (
     <div>
-      <section className="flex items-center h-full p-16 dark:bg-gray-900 dark:text-gray-100">
+      <section className="flex items-center h-full p-16 bg-[#AFF0E4]">
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-          <div className="max-w-md text-center">
+          <div className="  text-center">
+            <img
+              src="https://media3.giphy.com/media/UoeaPqYrimha6rdTFV/giphy.gif" 
+              alt="404 Error"
+              className="mb-8  mx-auto"
+            />
             <h2 className="mb-8 font-extrabold text-9xl dark:text-gray-600">
-              <span className="sr-only">Error</span>404
+              <span className="sr-only">Error</span> 
             </h2>
             <p className="text-2xl font-semibold md:text-3xl">
               Sorry, we could not find this page.
@@ -18,8 +23,8 @@ const Page404 = () => {
             </p>
             <Link
               rel="noopener noreferrer"
-             to='/'
-              className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900 btn"
+              to='/'
+              className="px-8 py-3 font-semibold rounded bg-[#28806C] text-white hover:bg-gray-600 btn"
             >
               Back to homepage
             </Link>

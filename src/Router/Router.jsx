@@ -5,6 +5,7 @@ import Home from "../components/HomePage/Home";
 import SignIn from "../components/Sign/SignIn";
 import SignUp from "../components/Sign/SignUp";
 import AddProduct from "../components/Product/AddProduct";
+import TechTipsSection from "../components/HomePage/TechTipsSection";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/addProduct",
         element: <AddProduct />,
+      },
+      {
+        path: "/techTips",
+        element: <TechTipsSection />,
       },
     ],
   },

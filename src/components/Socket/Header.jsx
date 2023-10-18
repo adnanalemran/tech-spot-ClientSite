@@ -57,9 +57,11 @@ const Header = () => {
             <li>
               <NavLink to="/addProduct">Add Product</NavLink>
             </li>
-
             <li>
               <NavLink to="/allProduct">All Product</NavLink>
+            </li> 
+            <li>
+              <NavLink to="/techTips">Tech Tips</NavLink>
             </li>
           </ul>
         </div>
@@ -84,7 +86,9 @@ const Header = () => {
               <span className="badge badge-sm indicator-item">0</span>
             </div>
           </label>
-          <Link className="btn" to='/signin'>Sign in</Link>
+          <Link className="btn" to="/signin">
+            Sign in
+          </Link>
         </div>
       </div>
     </div>

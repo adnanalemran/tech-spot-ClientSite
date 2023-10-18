@@ -12,7 +12,7 @@ const BrandSection = () => {
   }, []);
 
   return (
-    <div className="w-full p-8 space-y-6">
+    <div className="w-full p-8 space-y-6 mt-24">
       <h2 className="text-4xl text-center font-bold">Our Popular Brands</h2>
       <hr className="my-5" />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
