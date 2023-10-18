@@ -10,11 +10,12 @@ const Footer = () => {
    
   <Link to="/" className="  normal-case text-xl">
             <img
-              src="https://www.samsung.com/etc.clientlibs/samsung/clientlibs/consumer/global/clientlib-common/resources/images/gnb-desktop-120x32.png"
-              alt=""
+            className="w-24"
+              src="https://i.ibb.co/b1P6gfX/logo.jpg"
+              alt="TechSpot"
             />
           </Link>
-    <p>samsung Industries Ltd.<br/>Providing reliable tech since 1992</p>
+    <p>TechSpot Industries Ltd.<br/>Providing reliable tech since 1992</p>
   </aside> 
   <nav>
     <header className="footer-title">Services</header> 
