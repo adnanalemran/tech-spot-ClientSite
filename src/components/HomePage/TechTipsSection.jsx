@@ -14,9 +14,9 @@ const TechTipsSection = () => {
     <div className="w-full p-8 space-y-6 my-24 ">
       <h2 className="text-4xl text-center font-bold">Tech Tips </h2>
       <hr className="my-5" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1   gap-4">
         {techTips.map((tip, index) => (
-          <div key={index} className="card card-side bg-base-100 shadow-xl">
+          <div key={index} className="card card-side bg-[#F3F4F6]  ">
             <figure className="m-4   " >
               <img className="w-48 rounded-xl " src={tip.image} alt={tip.title} />
             </figure>

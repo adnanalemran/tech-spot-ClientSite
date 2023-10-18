@@ -1,28 +1,26 @@
 [
-    {
-      "title": "How to Improve Your Wi-Fi Signal",
-      "image": "https://i.ibb.co/gVrwLNF/wireless-router.png",
-      "summary": "Learn how to optimize your Wi-Fi signal for better performance.",
-      "link": "/wifi-tips"
-    },
-    {
-      "title": "Choosing the Right Smartphone for You",
-      "image": "https://i.ibb.co/9cj9GLX/app-development.png",
-      "summary": "A guide to selecting the perfect smartphone based on your needs.",
-      "link": "/smartphone-tips"
-    },
-    {
-      "title": "Top 10 Tech Gadgets of the Year",
-      "image": "https://i.ibb.co/sgWHd5S/gadgets.png",
-      "summary": "Discover the most exciting tech gadgets released this year.",
-      "link": "/gadgets"
-    },
-    {
-      "title": "Maximizing Your Smartphone's Battery Life",
-      "image": "https://cdn-icons-png.flaticon.com/128/9108/9108195.png",
-      "summary": "Tips and tricks to extend your smartphone's battery life throughout the day.",
-      "link": "/battery-tips"
-    } 
-
-  ]
-  
+  {
+    "title": "How to Improve Your Wi-Fi Signal",
+    "image": "https://i.ibb.co/gVrwLNF/wireless-router.png",
+    "summary": "Enhance your internet experience by optimizing your Wi-Fi signal for better performance. Discover valuable tips and tricks to boost connectivity.",
+    "link": "/wifi-tips"
+  },
+  {
+    "title": "Choosing the Right Smartphone for You",
+    "image": "https://i.ibb.co/9cj9GLX/app-development.png",
+    "summary": "Struggling to pick the perfect smartphone? Our comprehensive guide helps you make the right choice based on your needs and preferences.",
+    "link": "/smartphone-tips"
+  },
+  {
+    "title": "Top 10 Tech Gadgets of the Year",
+    "image": "https://i.ibb.co/sgWHd5S/gadgets.png",
+    "summary": "Dive into the world of innovation! Explore the most exciting tech gadgets released this year, from cutting-edge devices to groundbreaking inventions.",
+    "link": "/gadgets"
+  },
+  {
+    "title": "Maximizing Your Smartphone's Battery Life",
+    "image": "https://cdn-icons-png.flaticon.com/128/9108/9108195.png",
+    "summary": "Extend your smartphone's battery life with our expert tips and tricks. Keep your device powered throughout the day with these handy recommendations.",
+    "link": "/battery-tips"
+  }
+]
