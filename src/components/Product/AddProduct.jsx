@@ -1,29 +1,27 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
+  const initialFormData = {
+    image: "",
+    name: "",
+    brandName: "",  
+    type: "",      
+    price: "",
+    shortDescription: "",
+    rating: ""
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const form = e.target;
-    const image = form.image.value;
-    const name = form.name.value;
-    const brandName = form.brandName.value;
-    const type = form.type.value;
-    const price = form.price.value;
-    const shortDescription = form.shortDescription.value;
-    const rating = form.rating.value;
-
     const myData = {
-      image,
-      name,
-      brandName,
-      type,
-      price,
-      shortDescription,
-      rating,
+      ...formData
     };
 
-    //Post data 
+ 
     fetch("http://localhost:5000/product", {
       method: "POST",
       headers: {
@@ -34,13 +32,34 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "Your note has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setFormData(initialFormData);  
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error,
+        });
       });
+  };
 
-    console.log("Form Data:", myData);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   return (
-    <div className="w-full mx-auto max-w-4xl p-8 space-y-3 rounded-xl bg-gray-200 my-5 dark:bg-gray-900 dark:text-gray-200">
+    <div className="w-full mx-auto max-w-4xl p-8 space-y-3 rounded-xl bg-gray-200 my-5 dark-bg-gray-900 dark:text-gray-200">
       <h1 className="text-2xl font-bold text-center">Add Product</h1>
       <form className="space-y-6" onSubmit={handleSubmit}>
         <div className="space-y-1 text-sm">
@@ -48,21 +67,27 @@ const AddProduct = () => {
           <input
             type="text"
             name="name"
+            value={formData.name}
+            onChange={handleChange}
             className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           />
         </div>
         <div className="space-y-1 text-sm">
-          <label className="block dark:text-gray-400">Image url</label>
+          <label className="block dark-text-gray-400">Image URL</label>
           <input
             type="text"
             name="image"
-            className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+            value={formData.image}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           />
         </div>
         <div className="space-y-1 text-sm">
           <label className="block dark-text-gray-400">Brand Name</label>
           <select
             name="brandName"
+            value={formData.brandName}
+            onChange={handleChange}
             className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           >
             <option value="Apple">Apple</option>
@@ -77,10 +102,12 @@ const AddProduct = () => {
           <label className="block dark-text-gray-400">Type</label>
           <select
             name="type"
+            value={formData.type}
+            onChange={handleChange}
             className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           >
             <option value="phone">Phone</option>
-            <option value="Laptop">laptop</option>
+            <option value="laptop">Laptop</option>
             <option value="computer">Computer accessories</option>
             <option value="headphone">Headphone</option>
           </select>
@@ -90,6 +117,8 @@ const AddProduct = () => {
           <input
             type="number"
             name="price"
+            value={formData.price}
+            onChange={handleChange}
             className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           />
         </div>
@@ -97,6 +126,8 @@ const AddProduct = () => {
           <label className="block dark-text-gray-400">Short Description</label>
           <textarea
             name="shortDescription"
+            value={formData.shortDescription}
+            onChange={handleChange}
             className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           />
         </div>
@@ -105,6 +136,8 @@ const AddProduct = () => {
           <input
             type="number"
             name="rating"
+            value={formData.rating}
+            onChange={handleChange}
             className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
           />
         </div>

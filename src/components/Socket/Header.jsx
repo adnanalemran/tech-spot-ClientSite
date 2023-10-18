@@ -67,6 +67,8 @@ const Header = () => {
         </div>
 
         <div className="navbar-end gap-2">
+        <Link to="/cart">
+
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -86,6 +88,7 @@ const Header = () => {
               <span className="badge badge-sm indicator-item">0</span>
             </div>
           </label>
+          </Link>
           <Link className="btn" to="/signin">
             Sign in
           </Link>

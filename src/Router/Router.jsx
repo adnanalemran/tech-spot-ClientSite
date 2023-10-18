@@ -7,6 +7,9 @@ import SignUp from "../components/Sign/SignUp";
 import AddProduct from "../components/Product/AddProduct";
 import TechTipsSection from "../components/HomePage/TechTipsSection";
 import DisplayProducts from "../components/Product/DisplayProducts";
+import ProductDetail from "../components/Product/ProductDetail";
+import Cart from "../components/Product/Cart";
+import UpdateProduct from "../components/Product/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,10 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
+        path: "/techTips",
+        element: <TechTipsSection />,
+      },
+      {
         path: "/addProduct",
         element: <AddProduct />,
       },
@@ -35,8 +42,18 @@ const router = createBrowserRouter([
         element: <DisplayProducts />,
       },
       {
-        path: "/techTips",
-        element: <TechTipsSection />,
+        path: "/product/:id",
+        element: <ProductDetail />,
+      },
+      {
+        path: "product/update/:id",
+        element: <UpdateProduct />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/update/${params.id}`),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
