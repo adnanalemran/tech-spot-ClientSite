@@ -5,7 +5,7 @@ import Footer from "./Footer";
  
 const Socket = () => {
     return (
-        <div>
+        <div className="max-w-screen-2xl px-2 lg:px-0 mx-auto">
             <Header/>
             <Outlet/>
             <Footer/>
