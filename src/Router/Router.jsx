@@ -11,6 +11,7 @@ import ProductDetail from "../components/Product/ProductDetail";
 import Cart from "../components/Product/Cart";
 import UpdateProduct from "../components/Product/UpdateProduct";
 import CompanyProduct from "../components/Product/CompanyProduct";
+import Profile from "../components/Sign/Profile";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,11 @@ const router = createBrowserRouter([
       {
         path: "/companyProductView/:brandName",
         element: <CompanyProduct />,
+      },{
+        path:"/profile",
+        element:<Profile/>
       }
+
       
       
     ],

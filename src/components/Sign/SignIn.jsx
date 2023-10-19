@@ -1,11 +1,79 @@
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+  
+import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
+
+
+const showSuccessAlert = () => {
+  
+  Swal.fire({
+    icon: "success",
+    title: "Success...",
+    text: "Sign in success",
+  });
+};
+
+const showErrorAlert = (error) => {
+  Swal.fire({
+    icon: "error",
+    title: "login unsuccessful ",
+    text: error,
+  });
+};
+
+
 
 const SignIn = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { signIn } = useContext(AuthContext);
+  const { googleSignIn } = useContext(AuthContext);
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log(e.currentTarget);
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        console.log(result);
+        showSuccessAlert();
+
+        navigate(location?.state ? location.state : "/profile") 
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.code === "auth/invalid-login-credentials") {
+          showErrorAlert("Email or password is incorrect.");
+        } else {
+          showErrorAlert(error.message);
+        }
+      });
+  };
+
+  const HandleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result);
+
+        showSuccessAlert();
+        navigate(location?.state ? location.state : "/profile") 
+      })
+      .catch((error) => {
+        console.log(error);
+        showErrorAlert(error);
+      });
+  };
+
   return (
     <div>
       <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-200 my-5 dark:bg-gray-900 dark:text-gray-200">
         <h1 className="text-2xl font-bold text-center">Sign In</h1>
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleLogin}>
           <div className="space-y-1 text-sm">
             <label className="block dark:text-gray-400">Email</label>
             <input
@@ -25,11 +93,7 @@ const SignIn = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
-            <div className="flex justify-end text-xs dark:text-gray-400">
-              <a rel="noopener noreferrer" href="#">
-                Forgot Password?
-              </a>
-            </div>
+      
           </div>
           <button className="block w-full p-3 text-center rounded-xl dark:text-gray-900 dark:bg-violet-400 btn btn-primary">
             Sign in
@@ -43,7 +107,7 @@ const SignIn = () => {
           <div className="flex-1 h-px bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button onClick={HandleGoogleLogin} aria-label="Log in with Google" className="p-3 rounded-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
