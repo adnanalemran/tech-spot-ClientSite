@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
+import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { AuthContext } from "../provider/AuthProvider";
 
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -23,7 +23,7 @@ const CompanyProduct = () => {
 
   useEffect(() => {
     // Fetch product data
-    fetch("http://localhost:5000/product")
+    fetch("https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching product data: ", error));
@@ -70,7 +70,7 @@ const CompanyProduct = () => {
               />
             </figure>
             <div className="card-body p-4">
-              <h2 className="card-title text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              <h2 className="card-title text-xl font-semibold tracking-tight text-gray-900  ">
                 {product.name}
               </h2>
               <p>Brand Name: {product.brandName}</p>{" "}
@@ -87,7 +87,7 @@ const CompanyProduct = () => {
                 <p className="font-bold">{product.rating}</p>
               </p>
               <p>Type: {product.type}</p>
-              <p className="text-xl font-bold text-gray-900 dark:text-white">
+              <p className="text-xl font-bold text-gray-900  ">
                 BDT: {product.price}
               </p>
               <div className="card-actions gap-2 grid justify-center grid-cols-3">

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 const DisplayProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/product")
+    fetch("https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching product data: ", error));
@@ -23,7 +23,7 @@ const DisplayProducts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // User confirmed the deletion
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

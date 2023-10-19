@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import Socket from "../components/Socket/Socket";
-import Page404 from "../components/Page404/Page404";
 import Home from "../components/HomePage/Home";
-import SignIn from "../components/Sign/SignIn";
-import SignUp from "../components/Sign/SignUp";
-import AddProduct from "../components/Product/AddProduct";
 import TechTipsSection from "../components/HomePage/TechTipsSection";
+import Page404 from "../components/Page404/Page404";
+import AddProduct from "../components/Product/AddProduct";
+import Cart from "../components/Product/Cart";
+import CompanyProduct from "../components/Product/CompanyProduct";
 import DisplayProducts from "../components/Product/DisplayProducts";
 import ProductDetail from "../components/Product/ProductDetail";
-import Cart from "../components/Product/Cart";
 import UpdateProduct from "../components/Product/UpdateProduct";
-import CompanyProduct from "../components/Product/CompanyProduct";
 import Profile from "../components/Sign/Profile";
+import SignIn from "../components/Sign/SignIn";
+import SignUp from "../components/Sign/SignUp";
+import Socket from "../components/Socket/Socket";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path: "/product/update/:id",
         element: <UpdateProduct />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/update/${params.id}`),
+          fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product/update/${params.id}`),
       },
       {
         path: "/cart",

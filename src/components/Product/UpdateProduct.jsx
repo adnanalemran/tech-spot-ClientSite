@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
  
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 const UpdateProduct = () => {
   const singleData = useLoaderData();
 
@@ -18,7 +18,7 @@ const UpdateProduct = () => {
     console.log(formData);
     try {
       const response = await fetch(
-        `http://localhost:5000/product/update/${singleData._id}`,
+        `https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product/update/${singleData._id}`,
         {
           method: "PUT",
           headers: {

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -10,7 +10,7 @@ const Cart = () => {
   console.log(uid);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cart`)
+    fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/cart`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching cart data: ", error));
@@ -41,7 +41,7 @@ const Cart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // User confirmed the deletion
-        fetch(`http://localhost:5000/cart/${_id}`, {
+        fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/cart/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
