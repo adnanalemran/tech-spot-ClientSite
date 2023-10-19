@@ -1,9 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
-import { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
 import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+  const [products, setProducts] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
   const { user, logOut } = useContext(AuthContext);
+  const uid = user?.uid;
+  console.log(uid);
+
   const handleSignOut = () => {
     logOut().then().catch();
   };
@@ -101,7 +107,6 @@ const Header = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item">0</span>
               </div>
             </label>
           </Link>
@@ -109,9 +114,11 @@ const Header = () => {
           <div className="flex-none p-4">
             {user ? (
               <>
-                <div className=" flex flex-col lg:flex-row gap-4 items-center">
-                  <Link to="/profile" className="flex justify-center items-center">
-                 
+                <div className=" flex   flex-row gap-4 items-center">
+                  <Link
+                    to="/profile"
+                    className="flex justify-center items-center"
+                  >
                     <label
                       tabIndex={0}
                       className="btn btn-ghost  btn-circle avatar"
@@ -119,10 +126,8 @@ const Header = () => {
                       <div className="w-10 rounded-full">
                         <img src={displayPhotoURL} />
                       </div>
-
-                     
                     </label>
-                    <p>{displayName}</p>
+                    <p className="hidden lg:grid">{displayName}</p>
                   </Link>
 
                   <Link

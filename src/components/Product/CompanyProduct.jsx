@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const CompanyProduct = () => {
-  const { brandName } = useParams();  
-
+  const { brandName } = useParams();
   const [products, setProducts] = useState([]);
-  const filteredProducts = products.filter((product) => product.brandName === brandName);
+  const filteredProducts = products.filter(
+    (product) => product.brandName === brandName
+  );
+  const { user } = useContext(AuthContext);
+  const uid = user?.uid;
+  console.log(uid);
 
   useEffect(() => {
     fetch("http://localhost:5000/product")
@@ -16,7 +21,9 @@ const CompanyProduct = () => {
 
   return (
     <div className="px-2 lg:px-8 pt-16">
-      <h1 className="text-2xl font-bold text-center">Product Data {brandName}</h1>
+      <h1 className="text-2xl font-bold text-center">
+        Product Data {brandName}
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         {filteredProducts.map((product) => (
           <div key={product._id} className="card glass rounded-lg shadow-lg">
@@ -30,7 +37,6 @@ const CompanyProduct = () => {
               <p>Price: ${product.price}</p>
               <p>Rating: {product.rating}</p>
               <div className="card-actions gap-2 grid justify-center grid-cols-3">
-         
                 <Link to={`/product/${product._id}`}>
                   <button className="btn btn-info w-16">Details</button>
                 </Link>

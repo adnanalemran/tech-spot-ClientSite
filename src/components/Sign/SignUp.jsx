@@ -41,7 +41,9 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        const user = { email, photoURL, displayName, password };
+        const uId = result.user.uid;
+        console.log(uId);
+        const user = { uid:uId,email, photoURL, displayName, password };
         fetch("http://localhost:5000/user", {
           method: "POST",
           headers: {
