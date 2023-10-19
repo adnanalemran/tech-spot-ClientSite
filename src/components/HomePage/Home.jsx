@@ -1,5 +1,6 @@
 import Bannar from "./Bannar";
 import BrandSection from "./BrandSection";
+import Faq from "./Faq";
 import OffersSection from "./OffersSection";
 import TechTipsSection from "./TechTipsSection";
 
@@ -9,7 +10,8 @@ const Home = () => {
       <Bannar />
       <BrandSection />
        <OffersSection />
-      <TechTipsSection />
+       <Faq/>
+      
     </div>
   );
 };

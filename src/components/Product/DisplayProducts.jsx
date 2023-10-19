@@ -12,7 +12,6 @@ const DisplayProducts = () => {
   }, []);
 
   const handleDelete = (_id) => {
-    // Create a custom confirmation dialog using Swal
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -58,7 +57,7 @@ const DisplayProducts = () => {
       <h1 className="text-2xl font-bold text-center">Product Data</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         {products.map((product) => (
-          <div key={product._id} className="card glass rounded-lg shadow-lg">
+          <div key={product._id} className="card  rounded-lg shadow-lg  dark:bg-red-900 dark:text-gray-100">
             <figure className="p-4">
               <img className="w-56" src={product.image} alt={product.name} />
             </figure>

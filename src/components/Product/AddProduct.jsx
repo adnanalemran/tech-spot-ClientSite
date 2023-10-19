@@ -59,7 +59,8 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="w-full mx-auto max-w-4xl p-8 space-y-3 rounded-xl bg-gray-200 my-5 dark-bg-gray-900 dark:text-gray-200">
+    <div className="w-full mx-auto max-w-4xl p-8 space-y-3 rounded-xl  my-5  bg-[#0f111a3d] ">
+      <div className="hero-overlay bg-opacity-20"></div>
       <h1 className="text-2xl font-bold text-center">Add Product</h1>
       <form className="space-y-6" onSubmit={handleSubmit}>
         <div className="space-y-1 text-sm">
@@ -81,7 +82,7 @@ const AddProduct = () => {
             name="image"
             value={formData.image}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-md dark-border-gray-700 dark-bg-gray-900 dark-text-gray-100 focus:dark-border-violet-400"
+            className="w-full px-4 py-3 rounded-md dark-border-gray-700  focus:dark-border-violet-400"
           />
         </div>
         <div className="space-y-1 text-sm">

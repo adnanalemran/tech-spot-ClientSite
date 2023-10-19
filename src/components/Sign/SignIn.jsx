@@ -43,7 +43,7 @@ const SignIn = () => {
         console.log(result);
         showSuccessAlert();
 
-        navigate(location?.state ? location.state : "/profile") 
+        navigate(location?.state ? location.state : "/") 
       })
       .catch((error) => {
         console.log(error);
@@ -61,7 +61,7 @@ const SignIn = () => {
         console.log(result);
 
         showSuccessAlert();
-        navigate(location?.state ? location.state : "/profile") 
+        navigate(location?.state ? location.state : "/") 
       })
       .catch((error) => {
         console.log(error);

@@ -12,6 +12,7 @@ import Cart from "../components/Product/Cart";
 import UpdateProduct from "../components/Product/UpdateProduct";
 import CompanyProduct from "../components/Product/CompanyProduct";
 import Profile from "../components/Sign/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -45,28 +46,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetail />,
+        // element: <ProductDetail />,
+        element: (
+          <PrivateRoute>
+            <ProductDetail />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/product/update/:id",  
+        path: "/product/update/:id",
         element: <UpdateProduct />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/update/${params.id}`),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/companyProductView/:brandName",
         element: <CompanyProduct />,
-      },{
-        path:"/profile",
-        element:<Profile/>
-      }
-
-      
-      
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
     ],
   },
 ]);

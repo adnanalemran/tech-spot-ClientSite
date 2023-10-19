@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -15,14 +16,57 @@ const Cart = () => {
       .catch((error) => console.error("Error fetching cart data: ", error));
   }, [uid]);
 
+  
+
   const filteredProducts = products.filter((product) => product.uid === uid);
 
   const calculateTotal = () => {
     let total = 0;
     for (const product of filteredProducts) {
-      total += parseFloat(product.product.price); // Ensure price is parsed as a float
+      total += parseFloat(product.product.price);  
     }
-    return total.toFixed(2); // Display the total with two decimal places
+    return total.toFixed(2);  
+  };
+
+
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // User confirmed the deletion
+        fetch(`http://localhost:5000/cart/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              // Filter out the deleted product from the products list
+              setProducts((prevProducts) =>
+                prevProducts.filter((product) => product._id !== _id)
+              );
+              Swal.fire(
+                'Deleted!',
+                'Product has been deleted.',
+                'success'
+              );
+            }
+          })
+          .catch((error) => {
+            Swal.fire(
+              'Error!',
+              'Error deleting the product: ' + error,
+              'error'
+            );
+          });
+      }
+    });
   };
 
   return (
@@ -61,6 +105,7 @@ const Cart = () => {
                   </div>
                   <div className="flex text-sm divide-x">
                     <button
+                    onClick={() => handleDelete(product._id)} 
                       type="button"
                       className="flex items-center px-2 py-1 pl-0 space-x-1"
                     >

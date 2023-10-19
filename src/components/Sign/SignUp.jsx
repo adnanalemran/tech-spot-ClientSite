@@ -55,7 +55,7 @@ const SignUp = () => {
           .then((data) => {
             console.log(data);
             showSuccessAlert();
-            navigate(location?.state ? location.state : "/profile");
+            navigate(location?.state ? location.state : "/") 
           })
           .catch((error) => {
             console.log(error);

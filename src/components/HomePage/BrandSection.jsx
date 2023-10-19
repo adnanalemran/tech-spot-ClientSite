@@ -19,7 +19,7 @@ const BrandSection = () => {
         {brands.map((brand, index) => (
           <Link to={`/companyProductView/${brand.name}`} key={index}>
          
-            <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className=" card p-4 rounded-lg shadow-xl  ">
               <img
                 src={brand.image}
                 alt={brand.name}
