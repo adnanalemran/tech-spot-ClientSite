@@ -1,14 +1,20 @@
  
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";  
+ 
+import.meta.env.VITE_APIKEY;  
+
  
 const firebaseConfig = {
-  apiKey: "AIzaSyCV-8yCBrUmIa7Vocv_Wtlq339_427AwFc",
-  authDomain: "tech-spot-f78f5.firebaseapp.com",
-  projectId: "tech-spot-f78f5",
-  storageBucket: "tech-spot-f78f5.appspot.com",
-  messagingSenderId: "407960782162",
-  appId: "1:407960782162:web:798dc5179aa5a3cfbae68b"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
  
 export const app = initializeApp(firebaseConfig);
+ 
+export const db = getFirestore(app);

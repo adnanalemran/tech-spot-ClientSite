@@ -1,0 +1,37 @@
+{
+  "Apple": [
+    "https://i.pinimg.com/originals/8e/f7/26/8ef726ffe903afa19aa545e23f3b9c72.png",
+    "https://i.ytimg.com/vi/Vf8DeNkJztU/maxresdefault.jpg",
+    "https://static.vecteezy.com/system/resources/previews/025/867/963/original/apple-s-first-ever-iphone-iphone-1-front-and-back-banner-for-editorial-use-only-free-vector.jpg"
+  ],
+  "Samsung": [
+    "https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Samsung-Galaxy-Social-Media-Banner-Design-scaled.jpg",
+    "https://www.yugatech.com/wp-content/uploads/2022/03/Samsung-Galaxy-M33-5G-Banner.jpg",
+    "https://as1.ftcdn.net/v2/jpg/05/17/93/24/1000_F_517932465_ZdmBBUbJe5p9Kiu01M8jgH8pViPPJiKp.jpg"
+  ],
+  "Sony": [
+    "https://avispl.com/wp-content/uploads/2023/06/1280x720_Sony-Banner.png",
+    "https://unitedbroadcast.com/media/wysiwyg/banner_alpha_advantage_1.jpg",
+    "https://shopatsc.com/cdn/shop/files/Home_Banner_Mobile_750x450-4_5e5af761-401f-4211-b31f-e7c23026e8d6_2048x.jpg?v=1696516359"
+    
+  ]
+  ,
+  "Google": [
+    "https://www.techciti.com.au/media/catalog/category/google-banner.jpg",
+    "https://i.ytimg.com/vi/04tUrfgaE5o/maxresdefault.jpg",
+    "https://www.onecom.co.uk/hubfs/Google%20Banner.png"
+    
+  ],
+  "Intel": [
+    "https://www.pcworld.com/wp-content/uploads/2023/06/intel-new-cpu-branding.jpg?quality=50&strip=all",
+    "https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2022/10/17/Intel-13th-Gen-Raptor-Lake.jpg",
+    "https://149695847.v2.pressablecdn.com/wp-content/uploads/2022/02/intel-b_11zon-1.jpg"
+    
+  ],
+  "Microsoft": [
+    "https://res-academy.cache.wpscdn.com/images/seo_posts/20230324/818a5792d72471e1581431c0c43772cd.png",
+    "https://news.microsoft.com/wp-content/uploads/prod/sites/45/2018/08/Surface-Family-Expansion-1600x1079.png",
+    "https://mspoweruser.com/wp-content/uploads/2016/07/Surface-Pro-4-Ads.jpg"
+    
+  ]
+}

@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+ 
 import { useLoaderData, useParams } from "react-router-dom";
 const UpdateProduct = () => {
   const singleData = useLoaderData();
@@ -34,6 +35,8 @@ const UpdateProduct = () => {
           title: "Updated",
           text: "Your note has been updated  successfully.",
         });
+
+
       } else {
         Swal.fire({
           icon: "error",

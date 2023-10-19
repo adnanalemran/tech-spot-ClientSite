@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css";
+
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const CompanyProduct = () => {
   const { brandName } = useParams();
   const [products, setProducts] = useState([]);
+  const [sliderImages, setSliderImages] = useState([]);
+
   const filteredProducts = products.filter(
     (product) => product.brandName === brandName
   );
@@ -13,22 +22,52 @@ const CompanyProduct = () => {
   console.log(uid);
 
   useEffect(() => {
+    // Fetch product data
     fetch("http://localhost:5000/product")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching product data: ", error));
-  }, []);
 
+    fetch("/sliderImages.json")
+      .then((response) => response.json())
+      .then((data) => setSliderImages(data[brandName] || []))
+      .catch((error) => console.error("Error fetching slider images: ", error));
+  }, [brandName]);
+
+  console.log(sliderImages);
   return (
-    <div className="px-2 lg:px-8 pt-16">
-      <h1 className="text-2xl font-bold text-center">
-        Product Data {brandName}
+    <div className="   ">
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+      >
+        {sliderImages.map((image, index) => (
+          <div key={index}>
+            <div>
+              <SwiperSlide>
+                <img className="w-full h-[600px]" src={image} alt="" />
+              </SwiperSlide>
+            </div>
+          </div>
+        ))}
+      </Swiper>
+
+      <h1 className="text-3xl font-bold text-center pt-16">
+        Product Data on {brandName}
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         {filteredProducts.map((product) => (
           <div key={product._id} className="card glass rounded-lg shadow-lg">
             <figure className="p-4">
-              <img className="w-56" src={product.image} alt={product.name} />
+              <img
+                className="w-56 rounded-xl"
+                src={product.image}
+                alt={product.name}
+              />
             </figure>
             <div className="card-body p-4">
               <h2 className="card-title text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -53,10 +92,14 @@ const CompanyProduct = () => {
               </p>
               <div className="card-actions gap-2 grid justify-center grid-cols-3">
                 <Link to={`/product/${product._id}`}>
-                  <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Details</button>
+                  <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Details
+                  </button>
                 </Link>
                 <Link to={`/product/update/${product._id}`}>
-                  <button className="text-white bg-red-400  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                  <button className="text-white bg-red-400  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Update
+                  </button>
                 </Link>
               </div>
             </div>

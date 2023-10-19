@@ -143,7 +143,7 @@ const Cart = () => {
             className="px-6 py-2 border rounded-md dark:border-violet-400"
           >
             Back
-            <span className="sr-only sm:not-sr-only">to shop</span>
+            <Link to='/' className="sr-only sm:not-sr-only">to shop</Link>
           </button>
           <button
             type="button"

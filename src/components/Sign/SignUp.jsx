@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
   
 import Swal from "sweetalert2";
@@ -40,7 +40,8 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        result.user.displayName = displayName;
+        result.user.photoURL = photoURL;
         const uId = result.user.uid;
         console.log(uId);
         const user = { uid:uId,email, photoURL, displayName, password };
@@ -99,7 +100,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-200 my-5 dark:bg-gray-900 dark:text-gray-200">
+      <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl border my-5 dark:bg-gray-900 dark:text-gray-200">
         <h1 className="text-2xl font-bold text-center">Sign Up</h1>
         <form onSubmit={handleSignUp} className="space-y-6">
           <div className="space-y-1 text-sm">
@@ -109,7 +110,7 @@ const SignUp = () => {
               name="displayName"
               id="name"
               placeholder="name"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full  border px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -118,7 +119,7 @@ const SignUp = () => {
               type="text"
               name="photoURL"
               placeholder="Photo Url"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full border  px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -130,7 +131,7 @@ const SignUp = () => {
               onChange={handleEmailChange}
               id="email"
               placeholder="Email"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full border  px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -142,7 +143,7 @@ const SignUp = () => {
               name="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full px-4  border  py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
             {passwordError && (
               <p className="text-red-400 text-sm mt-2">{passwordError}</p>
@@ -153,20 +154,7 @@ const SignUp = () => {
             Sign Up
           </button>
         </form>
-        <div className="flex justify-center space-x-4">
-          <button
-            aria-label="Sign up with Google"
-            className="p-3 rounded-sm"
-          ></button>
-          <button
-            aria-label="Sign up with Twitter"
-            className="p-3 rounded-sm"
-          ></button>
-          <button
-            aria-label="Sign up with GitHub"
-            className="p-3 rounded-sm"
-          ></button>
-        </div>
+     
         <p className="text-xs text-center sm:px-6 dark:text-gray-400">
           Already have an account?
           <Link to="/signin" className="underline dark:text-gray-100">

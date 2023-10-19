@@ -14,6 +14,7 @@ const BrandSection = () => {
   return (
     <div className="w-full p-8 space-y-6 mt-24">
       <h2 className="text-4xl text-center font-bold">Our Popular Brands</h2>
+      <p className="text-center text-sm">Click on the brand to view the products</p>
       <hr className="my-5" />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {brands.map((brand, index) => (

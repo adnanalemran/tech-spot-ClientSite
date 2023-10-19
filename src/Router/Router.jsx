@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct />,
+        element:<PrivateRoute> <AddProduct /></PrivateRoute>,
       },
       {
         path: "/allProduct",

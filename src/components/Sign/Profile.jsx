@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Swal from "sweetalert2";
 
 import { AuthContext } from "../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const showSuccessAlert = () => {
   Swal.fire({
@@ -47,8 +48,8 @@ const Profile = () => {
     }
   }, [user]);
 
-  const displayName = user.displayName || userdb.displayName;
-  const displayPhotoURL = user.photoURL || userdb.photoURL;
+  const displayName = user.displayName || "user";
+  const displayPhotoURL = user.photoURL;
 
   const handleSignOut = async () => {
     try {
@@ -63,18 +64,32 @@ const Profile = () => {
   return (
     <>
       {user ? (
-        <div className="p-8 mx-auto max-w-md space-y-6">
-          <div className="bg-gray-800 shadow-xl rounded-lg p-4 space-y-4">
+        <div className="p-8 mx-auto max-w-xl space-y-6">
+          <div className="bg-[#3e63798c] shadow-xl rounded-lg p-4 space-y-4">
             <div className="flex flex-col items-center space-y-2">
-              <img src={displayPhotoURL} alt="Avatar" className="w-32 h-32 rounded-full" />
-              <h2 className=" text-gray-500 text-2xl font-bold">{displayName}</h2>
-              <p className="text-gray-400">Email: {user.email}</p>
+              <img
+                src={displayPhotoURL}
+                alt="Avatar"
+                className="w-32 h-32 rounded-full"
+              />
+              <h2 className="  text-2xl font-bold">
+              Name:  {displayName}
+              </h2>
+              <p className=" ">Email: {user.email}</p>
             </div>
             <div className="flex justify-center">
               <button onClick={handleSignOut} className="btn btn-primary">
                 Sign Out
               </button>
             </div>
+          </div>
+          <div className="flex align-middle justify-center  gap-4">
+            <p className="btn btn-secondary">
+              <Link to="/allProduct">All Product</Link>
+            </p>
+            <p className="btn btn-secondary">
+              <Link to="/cart">MY Cart</Link>
+            </p>
           </div>
         </div>
       ) : (
