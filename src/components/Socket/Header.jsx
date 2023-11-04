@@ -2,6 +2,15 @@ import { Link, NavLink } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
+
+const showSuccessAlert = () => {
+  Swal.fire({
+    icon: "success",
+    title: "Log out",
+    text: "Successfully logged out",
+  });
+};
 
 const Header = () => {
   const [theme, setTheme] = useState(
@@ -29,6 +38,7 @@ const Header = () => {
 
   const handleSignOut = () => {
     logOut().then().catch();
+    showSuccessAlert();
   };
 
   return (

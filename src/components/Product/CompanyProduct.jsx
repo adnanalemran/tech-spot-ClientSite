@@ -23,7 +23,7 @@ const CompanyProduct = () => {
 
   useEffect(() => {
     // Fetch product data
-    fetch("https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product")
+    fetch("https://b8a10-brandshop-server-side-ten.vercel.app/product")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching product data: ", error));
@@ -36,7 +36,7 @@ const CompanyProduct = () => {
 
   console.log(sliderImages);
   return (
-    <div className="   ">
+    <div className="bg-base-200 ">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
@@ -49,7 +49,11 @@ const CompanyProduct = () => {
           <div key={index}>
             <div>
               <SwiperSlide>
-                <img className="w-full h-[600px]" src={image} alt="" />
+                <img
+                  className="w-full h-[250px] md:h-[400px] lg:h-[500px]"
+                  src={image}
+                  alt=""
+                />
               </SwiperSlide>
             </div>
           </div>
@@ -61,20 +65,19 @@ const CompanyProduct = () => {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         {filteredProducts.map((product) => (
-          <div key={product._id} className="card glass rounded-lg shadow-lg">
-            <figure className="p-4">
+          <div key={product._id} className="card  bg-base-300 rounded-lg shadow-xl">
+            <figure className="m-4">
               <img
-                className="w-56 rounded-xl"
+                className="w-64 rounded-xl "
                 src={product.image}
                 alt={product.name}
               />
             </figure>
-            <div className="card-body p-4">
-              <h2 className="card-title text-xl font-semibold tracking-tight text-gray-900  ">
+            <div className="card-body p-4 ">
+              <h2 className="card-title text-xl font-semibold tracking-tight ">
                 {product.name}
-              </h2>
-              <p>Brand Name: {product.brandName}</p>{" "}
-              <p className="flex gap-2">
+              </h2>{" "}
+              <p className="flex gap-2 p-0">
                 <svg
                   className="w-4 h-4 text-yellow-300 mr-1"
                   aria-hidden="true"
@@ -86,9 +89,12 @@ const CompanyProduct = () => {
                 </svg>
                 <p className="font-bold">{product.rating}</p>
               </p>
-              <p>Type: {product.type}</p>
-              <p className="text-xl font-bold text-gray-900  ">
-                BDT: {product.price}
+              <p>Type: {product.type} <br />
+                Brand Name: {product.brandName}
+                
+              </p>
+              <p className="text-xl font-bold ">
+                BDT: {product.price} Tk
               </p>
               <div className="card-actions gap-2 grid justify-center grid-cols-3">
                 <Link to={`/product/${product._id}`}>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const showSuccessAlert = () => {
@@ -23,13 +23,16 @@ const showErrorAlert = (error) => {
 const Profile = () => {
   const { user, logOut } = useContext(AuthContext);
   const [userdb, setUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const userId = user.id;
 
-        const response = await fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/user/${userId}`);
+        const response = await fetch(
+          `https://b8a10-brandshop-server-side-ten.vercel.app/user/${userId}`
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch user data");
@@ -55,6 +58,7 @@ const Profile = () => {
     try {
       await logOut();
       showSuccessAlert();
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
       console.error(error);
       showErrorAlert(error.message);
@@ -72,9 +76,7 @@ const Profile = () => {
                 alt="Avatar"
                 className="w-32 h-32 rounded-full"
               />
-              <h2 className="  text-2xl font-bold">
-              Name:  {displayName}
-              </h2>
+              <h2 className="  text-2xl font-bold">Name: {displayName}</h2>
               <p className=" ">Email: {user.email}</p>
             </div>
             <div className="flex justify-center">

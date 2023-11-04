@@ -1,9 +1,10 @@
 import Swal from "sweetalert2";
  
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 const UpdateProduct = () => {
   const singleData = useLoaderData();
-
+  const location = useLocation();  
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
@@ -16,9 +17,11 @@ const UpdateProduct = () => {
       rating: parseFloat(e.target.rating.value),
     };
     console.log(formData);
+
+    
     try {
       const response = await fetch(
-        `https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product/update/${singleData._id}`,
+        `https://b8a10-brandshop-server-side-ten.vercel.app/product/update/${singleData._id}`,
         {
           method: "PUT",
           headers: {
@@ -35,7 +38,7 @@ const UpdateProduct = () => {
           title: "Updated",
           text: "Your note has been updated  successfully.",
         });
-
+        navigate(location?.state ? location.state : `/product/${singleData._id}`) 
 
       } else {
         Swal.fire({
@@ -55,7 +58,7 @@ const UpdateProduct = () => {
   };
 
   return (
-    <div className="w-full mx-auto max-w-4xl p-8 space-y-3 rounded-xl bg-gray-200 my-5 dark-bg-gray-900 dark:text-gray-200">
+    <div className="w-11/12 mx-auto max-w-4xl p-8 space-y-3 rounded-xl  m-5  bg-base-300 ">
       <h1 className="text-2xl font-bold text-center">Update Product</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-1 text-sm">

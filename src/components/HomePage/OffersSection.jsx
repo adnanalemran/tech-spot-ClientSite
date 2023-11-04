@@ -2,7 +2,7 @@ import React from "react";
 
 const OffersSection = () => {
   return (
-    <div className="p-16 mt-24">
+    <div className="p-16 pt-24  bg-base-200">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">Check Out Our Latest Offers</h2>
         <p className="text-xl text-gray-500 mb-8">

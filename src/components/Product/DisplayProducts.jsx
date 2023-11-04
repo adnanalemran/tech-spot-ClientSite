@@ -5,7 +5,7 @@ const DisplayProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product")
+    fetch("https://b8a10-brandshop-server-side-ten.vercel.app/product")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching product data: ", error));
@@ -23,7 +23,7 @@ const DisplayProducts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // User confirmed the deletion
-        fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product/${_id}`, {
+        fetch(`https://b8a10-brandshop-server-side-ten.vercel.app/product/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -22,7 +22,7 @@ const AddProduct = () => {
     };
 
  
-    fetch("https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product", {
+    fetch("https://b8a10-brandshop-server-side-ten.vercel.app/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="w-full mx-auto max-w-4xl p-8 space-y-3 rounded-xl  my-5  bg-[#0f111a3d] ">
+    <div className="w-11/12 mx-auto max-w-4xl p-8 space-y-3 rounded-xl  m-5  bg-base-300 ">
       <div className="hero-overlay bg-opacity-20"></div>
       <h1 className="text-2xl font-bold text-center">Add Product</h1>
       <form className="space-y-6" onSubmit={handleSubmit}>

@@ -10,7 +10,7 @@ const Cart = () => {
   console.log(uid);
 
   useEffect(() => {
-    fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/cart`)
+    fetch(`https://b8a10-brandshop-server-side-ten.vercel.app/cart`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching cart data: ", error));
@@ -41,7 +41,7 @@ const Cart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // User confirmed the deletion
-        fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/cart/${_id}`, {
+        fetch(`https://b8a10-brandshop-server-side-ten.vercel.app/cart/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

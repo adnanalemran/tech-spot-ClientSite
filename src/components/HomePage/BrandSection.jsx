@@ -12,7 +12,7 @@ const BrandSection = () => {
   }, []);
 
   return (
-    <div className="w-full p-8 space-y-6 mt-24">
+    <div className="w-full p-8 space-y-6 pt-24  bg-base-200">
       <h2 className="text-4xl text-center font-bold">Our Popular Brands</h2>
       <p className="text-center text-sm">Click on the brand to view the products</p>
       <hr className="my-5" />
@@ -20,7 +20,7 @@ const BrandSection = () => {
         {brands.map((brand, index) => (
           <Link to={`/companyProductView/${brand.name}`} key={index}>
          
-            <div className=" card p-4 rounded-lg shadow-xl  ">
+            <div className=" card p-4 rounded-lg shadow-xl  bg-base-300">
               <img
                 src={brand.image}
                 alt={brand.name}

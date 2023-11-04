@@ -38,7 +38,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element:<PrivateRoute> <AddProduct /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allProduct",
@@ -55,9 +60,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/update/:id",
-        element: <UpdateProduct />,
+        element: (
+          <PrivateRoute>
+            <UpdateProduct />
+          </PrivateRoute>
+        ),
+
         loader: ({ params }) =>
-          fetch(`https://b8a10-brandshop-server-side-hllas1bzs-adnans-projects-98b0c3b9.vercel.app/product/update/${params.id}`),
+          fetch(
+            `https://b8a10-brandshop-server-side-ten.vercel.app/product/update/${params.id}`
+          ),
       },
       {
         path: "/cart",
